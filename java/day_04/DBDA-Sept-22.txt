@@ -1,0 +1,203 @@
+OOPS Using Java 8
+===============================================================
+Programming Language: It is used to communicate with the computer.
+Purpose: To develop the apps.
+
+#POP VS OOP
+--------------------------------------------------------------------
+POP: Procedure Oriented Programmng Approach
+1. Focus on methods or procedure
+2. Follow the top-down approach: Problem is break down into small problems
+3. communication with in the program takes place through functions/methods
+4. E.g. C, COBOL, BASIC, Pascal etc
+
+OOP: Object Oriented Programming Approach
+1. Focus on who is affected: Data or Object
+2. Data Security
+3. Follow Bottom-Up Approach: Begin with easy and adding more complexity: Inheritance
+4. Communication takes place through objects
+5. Data and Operations/Functions/Methods are tied together: Class
+6. E.g C++,Java, C#, Python, Ruby, Java Script , PHP
+----------------------------------------------------------------------
+
+#Features of OOPs
+----------------------------------------------------------------------
+Object: It is a real world entity which has some state and behaviour.
+or 
+Object have attributes and behaviour
+attributes=>features=>properties
+Behavious=>functions/methods=>which operate over the data 
+Class: A blueprint which binds state and behaviour or objects together
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+------------------------------------------------------------------------
+
+#JAVA Introduction
+------------------------------------------------------------------------
+Read By Yourself=>>>History: Java, Editions, Developer, Some importants features 
+
+_____________________________________________________________________________
+JDK: Java Development Kit
+1.Development Tools: Java Compiler, Java Doc, Java Debugger
+2. JRE=> Java Runtime Environment: JVM, JIT, Java Class Loader, Archiver
+	Entire JRE components help the java written and compiled code to run over the machine
+	
+	
+	abc.java
+	
+	to compile a java file we use 
+	javac command
+	
+	Syntax: javac abc.java
+	
+	if no error in your code
+	abc.java=>javac=>abc.class (byte code)=>JRE (for exuction purpose)
+	
+	
+	for exucutuin purpose we use "java" command 
+	java abc
+	
+--------------------------------------------------------------------------------------
+JVM:
+Class Loader:
+Class or Methods Area:  Class code, Methods Code
+PC Program Counter: Addtress of Program current instruction getting executed
+Heap: Objetcts memory
+Stack: Methods invocation record, local variable, partial results
+Native Methods:
+Execution Engine: System Virtual Processor, JIT, Interpreter
+
+------------------------------------------------------------------------------
+Keywords: the reserved words for writing a program
+
+###Writing and Executing a Java Programming
+1. Class 
+2. There must be a main method inside the class
+3. There should be logic in the method
+4. Compile the java program with javac
+5. Run the java program with java
+===============================================================================
+
+How to define a class?
+Ans: by using reserved keyword of java i.e. class.
+
+syntex: class Class
+		{     //start of the class
+	
+	
+	
+	
+		
+		
+		
+		}     //End of the class
+		
+		
+		class Project Man ager
+		{
+		
+		}
+#In java there is a well defined format to write a main function
+format: public static void Main(String args[])
+{
+Logic Here
+}
+
+==========================================================================	
+Data Types in JAVA
+
+It actually represents type of data inside a program.
+
+Primitive Data Type:byte, short, int, long, double , float, char, boolean
+Non-Primitive Data Type: class, interface, arrays, string
+
+-----------------------------------------------------------
+Integers: byte, short, int, long
+float: float, double
+char: for single chracter
+boolean: true, false
+
+Steps to work with data types/data inside a program
+--------------------------------------------------
+1. Data decalartion
+2. Assignment
+3. operation on that data
+--------------------------------------------------
+byte: 8-bit: -128 to 127
+short: 2 byte: 
+int: 4 byte:
+long: 8 byte:
+===================================================
+Identifier is a entity data, method,class, interface which is defined by the programmer:
+int a;
+int A;
+===================================================
+variable: it is just a container which is going to hold some value (number, string, char) during execution of programm
+Self Study:
+Data Types and uses
+Identifier
+Literals
+---------------------------------------------------
+Type Conversion
+Converting one data type to another data type specially in case of numeric data types
+
+1. Impilicit Conversion: which is done by the compiler itself. It is also known as data widening
+	a. Destination data type should be larger then source data type
+	float f=100;
+	SOP(f)=100.0
+	
+	
+2. Explicit Conversion: It is forcefully convertion done by the programmer. It is known as data narrowing, type casting
+	byte b;
+	int a=150;
+	b=a;
+	destination datatype=(byte)source datatype
+	b=(byte)a;
+	
+3. Type Permotion
+	It is promoting a data type to the higher in case of type mismatch between a expression
+	int a=10;
+	float b=10.90f;
+	byte c=123;
+	
+	short res=a*b*c;  //Assigment
+	
+=====================================================================
+Operator: Special characters, symbols which are used to perform a certain kind of operation on data.
+e.g. +,-,*,/
+
+Oprands: to whom operator perform operation.
+
+Types:
+1. Unary Operator
+2. Arithnatic Operator
+3. Comparision Operator
+4. Logical Operator
+5. Shift Operator
+6. Ternary Operator
+
+
+Unary Operator: Are those which take single oprand to perform their particular operation.
+e.g. ++,--,!
+
+Increment Operator: ++
+Post-Increment: 
+Pre-Increment
+	
+======================================================================
+Programs on Data Types
+Programs on Data Conversion
+Unary Operator
+Arithmatic Operator
+
+
+
+
+
+
+
+
+ 		
+		
