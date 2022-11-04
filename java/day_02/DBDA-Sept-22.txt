@@ -1,0 +1,134 @@
+OOPS Using Java 8
+===============================================================
+Programming Language: It is used to communicate with the computer.
+Purpose: To develop the apps.
+
+#POP VS OOP
+--------------------------------------------------------------------
+POP: Procedure Oriented Programmng Approach
+1. Focus on methods or procedure
+2. Follow the top-down approach: Problem is break down into small problems
+3. communication with in the program takes place through functions/methods
+4. E.g. C, COBOL, BASIC, Pascal etc
+
+OOP: Object Oriented Programming Approach
+1. Focus on who is affected: Data or Object
+2. Data Security
+3. Follow Bottom-Up Approach: Begin with easy and adding more complexity: Inheritance
+4. Communication takes place through objects
+5. Data and Operations/Functions/Methods are tied together: Class
+6. E.g C++,Java, C#, Python, Ruby, Java Script , PHP
+----------------------------------------------------------------------
+
+#Features of OOPs
+----------------------------------------------------------------------
+Object: It is a real world entity which has some state and behaviour.
+or 
+Object have attributes and behaviour
+attributes=>features=>properties
+Behavious=>functions/methods=>which operate over the data 
+Class: A blueprint which binds state and behaviour or objects together
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+------------------------------------------------------------------------
+
+#JAVA Introduction
+------------------------------------------------------------------------
+Read By Yourself=>>>History: Java, Editions, Developer, Some importants features 
+
+_____________________________________________________________________________
+JDK: Java Development Kit
+1.Development Tools: Java Compiler, Java Doc, Java Debugger
+2. JRE=> Java Runtime Environment: JVM, JIT, Java Class Loader, Archiver
+	Entire JRE components help the java written and compiled code to run over the machine
+	
+	
+	abc.java
+	
+	to compile a java file we use 
+	javac command
+	
+	Syntax: javac abc.java
+	
+	if no error in your code
+	abc.java=>javac=>abc.class (byte code)=>JRE (for exuction purpose)
+	
+	
+	for exucutuin purpose we use "java" command 
+	java abc
+	
+--------------------------------------------------------------------------------------
+JVM:
+Class Loader:
+Class or Methods Area:  Class code, Methods Code
+PC Program Counter: Addtress of Program current instruction getting executed
+Heap: Objetcts memory
+Stack: Methods invocation record, local variable, partial results
+Native Methods:
+Execution Engine: System Virtual Processor, JIT, Interpreter
+
+------------------------------------------------------------------------------
+Keywords: the reserved words for writing a program
+
+###Writing and Executing a Java Programming
+1. Class 
+2. There must be a main method inside the class
+3. There should be logic in the method
+4. Compile the java program with javac
+5. Run the java program with java
+===============================================================================
+
+How to define a class?
+Ans: by using reserved keyword of java i.e. class.
+
+syntex: class Class
+		{     //start of the class
+	
+	
+	
+	
+		
+		
+		
+		}     //End of the class
+		
+		
+		class Project Man ager
+		{
+		
+		}
+#In java there is a well defined format to write a main function
+format: public static void Main(String args[])
+{
+Logic Here
+}
+
+==========================================================================	
+Data Types in JAVA
+
+It actually represents type of data inside a program.
+
+Primitive Data Type:byte, short, int, long, double , float, char, boolean
+Non-Primitive Data Type: class, interface, arrays, string
+
+-----------------------------------------------------------
+Integers: byte, short, int, long
+float: float, double
+char: for single chracter
+boolean: true, false
+
+Steps to work with data types/data inside a program
+--------------------------------------------------
+1. Data decalartion
+2. Assignment
+3. operation on that data
+--------------------------------------------------
+byte: 8-bit: -128 to 127
+short: 2 byte: 
+int: 4 byte:
+long: 8 byte:
+
+ 		
+		
