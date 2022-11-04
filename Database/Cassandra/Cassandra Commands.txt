@@ -1,0 +1,99 @@
+Documented shell commands:  --> Help will be displayed on the command line only
+CQL help topics:--> Help will be displayed on the WEB PAGE
+
+show host;
+show version;
+help;
+
+Keyspace = Database
+
+1) CREATE KEYSPACE “KeySpace Name”
+WITH replication = {'class': ‘Strategy name’, 'replication_factor' : ‘No.Of  replicas’}
+AND durable_writes = ‘Boolean value’;
+
+Strategy name: 
+Simple Strategy --> Replication within same data centre
+Network Topology Strategy --> Replication within different data centres (among clusters)
+
+durable_writes --> True OR False --> Instructs cassandra to write to commitlog on not. By default its always TRUE 
+
+CREATE KEYSPACE LibrarySystem WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+2) Listing the available keysapces
+
+Describe Keysapaces;
+SELECT * FROM system_schema.keyspaces;
+
+3)  Alter Keyspace
+
+ALTER KEYSPACE LibrarySystem WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+4) Use Keyspace
+
+Use LibrarySystme;
+
+5) DROP Keyspace
+
+DROP Keyspace librarysystem;
+
+6) CREATE TABLE
+
+create table book ( bookid text, bookname text, cost int, pages int)
+
+7) ALTER TABLE
+
+ALTER table name ADD  new column name data type;
+ALTER book ADD  BookType  text;
+
+ALTER table name DROP column name;
+ALTER book DROP pages;
+
+8) DROP TABLE 
+
+Drop Table <table name>
+Drop Table book;
+
+9) Truncate table
+
+Truncate table <table name>
+Truncate table book;
+
+10) Create Index 
+Create Index booknameindex on book(bookname);
+
+11) Batch
+
+Begin Batch
+        insert into book ( bookid, bookname , cost , pages ) values ( 'B001' ,  ' MegaLiving ' ,  300 , 450 ) ;
+        insert into book ( bookid, bookname , cost , pages ) values ( 'B002' ,  ' On The Wings Of Eagele ' ,  350 , 500 ) ;
+        Update book set bookname = ' Rich Dad Poor Dad ' where bookid = 'B002' ;
+        Delete bookname from book where bookid = ' B002 '; 
+Apply Batch ;
+
+12) Collections - Data Type - Used to store the multiple values in a single variable
+
+LIST - Duplicate values will be retained
+
+Create table author (id int, authorname text, country text , bookwritten  list <text> ) ;
+insert into author (id, authorname, country , bookwritten) values ( 1, 'Chetan Bhagat', 'India', ['3 Mistakes of My Life','One Indian Girl']);
+
+SET - Duplicate values will be ignored
+
+CREATE table authorSet (id int, authorname text, country text , bookwritten  set <variant>);
+insert into authorset (id, authorname, country, bookwritten) values (1,'Chetan Bhagat','India',{'2 states','3 mistakes','2 states'});
+
+MAP - Used to store key-value pair of data
+
+CREATE table authorMap(authorname text primary key, country map <text, text>);
+insert into authormap (authorname, country) values ('Robin Sharma' , {BaseCountry: 'India', CurrentCountry:'Canada'});
+
+UPDATE authormap SET country = country+{'CurrentCountry':'Singapore'}  WHERE authorname = 'Robin Sharma';
+
+
+
+
+
+
+Driver installation for connecting python with cassandra
+pip install cassandra-driver
+

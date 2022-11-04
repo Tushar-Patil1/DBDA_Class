@@ -1,0 +1,9 @@
+
+
+create table team (name text Primary Key, CountriesPlayedAgainst set<text>);
+
+insert into team(name, CountriesPlayedAgainst) values ('Virendra Sehvag',{'Pakistan','Australia'});
+insert into team(name, CountriesPlayedAgainst) values ('Virat Kohli',{'Pakistan','Pakistan'});
+insert into team(name, CountriesPlayedAgainst) values ('Navjyot Siddhu',{'Pakistan','England','Pakistan','Australia'});
+
+insert into team(name, CountriesPlayedAgainst) values ('Dhoni',{'Pakistan','England','Pakistan','Australia'});

@@ -1,0 +1,7 @@
+
+
+Create table employee ( empno text PRIMARY KEY, fname text, location list<text>);
+
+Insert into employee ( empno , fname , location ) values ('E001' , 'Rakesh', ['Pune', 'Bangalore']); 
+Insert into employee ( empno , fname , location ) values ('E002' , 'Samiksha', ['Pune', 'Pune']); 
+Insert into employee ( empno , fname , location ) values ('E003' , 'Ram', ['Pune', 'Pune']); 

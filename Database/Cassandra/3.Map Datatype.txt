@@ -1,0 +1,8 @@
+Map
+
+
+create table teamIndia (name text Primary Key, VanueRun map<text,int>);
+
+Insert into teamIndia ( name , VanueRun ) values ('Sehvag',{ 'Delhi' : 3000, 'Mumbai': 5000}); 
+
+

@@ -1,0 +1,20 @@
+from cassandra.cluster import Cluster
+clstr=Cluster()
+session=clstr.connect('libs')
+
+
+
+rows = session.execute("SELECT bookid, bookname, cost , pages from book;")
+for user_row in rows:
+    print user_row.bookid, user_row.bookname,user_row.cost, user_row.pages 
+
+
+
+rows = session.execute("SELECT name, countriesplayedagainst from team;")
+for user_row in rows:
+    print user_row.name, user_row.countriesplayedagainst
+
+
+
+
+

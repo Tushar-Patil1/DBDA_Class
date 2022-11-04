@@ -1,0 +1,149 @@
+# Cassandra is a distributed database
+# No foreign key , no joins
+# All data are stored in different nodes (different location possibile) .i.e. geogrophical data can be stored.Means US data is stored in US node, Indian data is stored in india node. This is called partitioning or distribution of data and this is done  by "Partitining key". Due to this retrival is very fast.
+# Cassandra follow Availability and Partitioning but no consistancy.
+
+===============================================================
+token@cqlsh> desc keyspaces;
+token@cqlsh> use sample;
+token@cqlsh:sample> 
+
+
+====================================================================================
+
+# CREATE 
+
+token@cqlsh:sample> create table program (
+          ... name text,
+          ... tech text,
+          ... exp int,
+          ... id int,
+          ... primary key(id)
+          ... );
+
+
+ token@cqlsh:sample> desc program;
+
+CREATE TABLE sample.program (
+    id int PRIMARY KEY,
+    exp int,
+    name text,
+    tech text
+) WITH additional_write_policy = '99PERCENTILE'
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+   
+
+ token@cqlsh:sample> select * from program;
+========================================================================================
+
+# INSERT
+
+ token@cqlsh:sample> insert into program (id, name, exp, tech) values (1, 'Tushar', 5, 'Java');
+token@cqlsh:sample> insert into program (id, name, exp, tech) values (2, 'Suraj', 6, 'Python');
+token@cqlsh:sample> select * from program;
+
+ id | exp | name   | tech
+----+-----+--------+--------
+  1 |   5 | Tushar |   Java
+  2 |   6 |  Suraj | Python
+
+(2 rows)
+=========================================================================================
+
+# UPDATE
+
+
+token@cqlsh:sample> update program set tech='sql' where id=2;
+token@cqlsh:sample> select * from program;
+
+ id | exp | name   | tech
+----+-----+--------+------
+  1 |   5 | Tushar | Java
+  2 |   6 |  Suraj |  sql
+
+(2 rows)
+
+
+token@cqlsh:sample> update program set tech='sql' where id=3;
+token@cqlsh:sample> select * from program;
+
+ id | exp  | name   | tech
+----+------+--------+------
+  1 |    5 | Tushar | Java
+  2 |    6 |  Suraj |  sql
+  3 | null |   null |  sql
+
+(3 rows)
+
+Note: Automatically insert new row if id not found. This is called upsert.
+
+
+========================================================================================
+
+# DROP 
+
+token@cqlsh:sample> drop table program;
+
+=========================================================================================
+
+# ALTER
+
+token@cqlsh:sample> alter table program add (created timestamp, available boolean);
+token@cqlsh:sample> desc program;
+
+CREATE TABLE sample.program (
+    id int PRIMARY KEY,
+    available boolean,
+    created timestamp,
+    name text,
+    tech text
+
+
+ token@cqlsh:sample> select * from program;
+
+ id | available | created | name   | tech
+----+-----------+---------+--------+--------
+  1 |      null |    null | Tushar | Python
+  2 |      null |    null |   Suaj |   Java
+============================================================================
+
+token@cqlsh:sample> insert into program (id, name, tech, email) values (1, 'Tushar', 'Java', {'t@gmail.com','t2@gmail.com'});
+
+
+token@cqlsh:sample> alter table program add (emails set<text>, frameworks list map<text>, jobs<text, int>);
+ 
+token@cqlsh:sample> alter table program add (emails set<text>);
+token@cqlsh:sample> alter table program add (frameworks list<text>);
+token@cqlsh:sample> alter table program add (jobs<text, int>);
+
+==============================================================
+
+token@cqlsh:sample> create table demo (
+          ... id uuid,
+          ... name text,
+          ... tech text,
+          ... loc text,
+          ... primary key (loc, tech, id));
+
+
+token@cqlsh:sample> select * from demo;
+
+ loc | tech | id | name
+-----+------+----+------
+
+
+Here loc is Partition key and tech,id is called clustering key.
+
+Partition key -> # All data is stored in different nodes (different location possibile) .i.e. geogrophical data can be stored.Means US data is stored in US node, Indian data is stored in india node. This is called partitioning or distribution of data and this is done  by "Partitining key". Due to this retrival is very fast.
+
+
+ clustering key :-> This key are used for sorting purpose.
+
+ Replication Factor :-> For copy of data. General value is 3 i.e. 3 copies of data are made.
+
+
+ Token value :-> Each node has its token value. For example US node value are stored in US.(Key basis).It is done by Gossip protocol.
+
+One node can have multiple partition.
+
