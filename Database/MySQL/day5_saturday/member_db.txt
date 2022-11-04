@@ -1,0 +1,16 @@
+Create table Member
+(
+	MemberId varchar(10) NOT NULL,
+	mFname varchar(40) NOT NULL,
+	mLname varchar(40) NOT NULL,
+	PlanId varchar(10) NOT NULL,
+	DOJ date NOT NULL,
+	Sex ENUM('Male','Female') NOT NULL,
+	Status ENUM('Active', 'Not Active','Vacation') NOT NULL,
+	Primary Key(MemberId)
+);
+insert into member values ('M001','Shreya', 'Talwar','PL01','2017/05/10','Female','Active');
+insert into member values ('M002','Tony', 'Brigenza','PL03','2018/01/25','Male','Active');
+insert into member values ('M003','Avdhesh', 'Prasad','PL02','2016/07/05','Male','Vacation');
+insert into member values ('M004','Shikha', 'Menon','PL02','2018/04/23','Female','Active');
+insert into member values ('M005','Ajay', 'Rathod','PL01','2018/11/11','Male','Not Active');

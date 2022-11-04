@@ -1,0 +1,23 @@
+cmd-> mysql -u root -p
+============
+
+mysql> system cls -> to clear screen
+
+========================
+
+set autocommit=0; ---> Disabling autocommit mode
+rollback;
+only dml command can be rollback
+==========
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+
+
+SELECT TABLE_NAME, CONSTRAINT_TYPE, CONSTRAINT_NAME FROM information_schema.table_constraints where table_name = "job_history"

@@ -1,0 +1,146 @@
+1) RANK
+
+select bookname, catogery, cost , RANK() OVER (PARTITION BY catogery order by cost) catogery_rank from book;  
+
+- Rank the result based on order by clause (WITH skipped rank when two values within catogery are same)
+
+
+2) Dense Rank 
+
+select bookname, catogery, cost , DENSE_RANK() OVER (PARTITION BY catogery order by cost) catogery_dense_rank from book;
+
+- Rank the result based on order by clause (WITHOUT skipped rank when two values within catogery are same)
+
+
+
+FIRST_VALUE
+
+select efname , daysworked, first_value(efname) over (order by daysworked) Least_Days_Worked from employee;
+
+select efname , designation ,daysworked, first_value(efname) over (partition by designation order by daysworked) Least_Days_Worked from employee;
+
+
+
+LAST_VALUE
+
+select efname ,  daysworked, last_value(efname) over (order by daysworked) Highest_Days_Worked from employee;
+
+select efname , designation ,daysworked, last_value(efname) over (partition by designation order by daysworked) Highest_Days_Worked from employee;
+
+
+
+NTH_value
+
+ SELECT efname, salary, NTH_VALUE(efname, 2) OVER  ( ORDER BY salary DESC ) second_highest_salary FROM employee;  
+   2 <-- 2nd Highest Value
+
+
+select efname, salary , round(PERCENT_RANK() OVER (order by salary),4) from employee;
+
+select * from productcheck;
++----------+-------+------+
+| product  | month | cost |
++----------+-------+------+
+| Mouse    |     4 |  300 |
+| Keyboard |     4 |  450 |
+| PenDrive |     4 |  640 |
+| Mouse    |     5 |  275 |
+| Keyboard |     6 |  500 |
+| PenDrive |     7 |  490 |
+| Mouse    |     3 |  200 |
+| Keyboard |     7 |  490 |
+| PenDrive |     8 |  625 |
++----------+-------+------+
+
+LAG
+
+select product, month, cost as current_month_price , LAG(COST) OVER (PARTITION BY product order by month) previouse_month_cost from productcheck;
+
+
+
+LEAD
+
+select product, month, cost as current_month_price , LEAD(COST) OVER (PARTITION BY product order by month) next_month_cost from productcheck;
+
+SELECT ROW_NUMBER() OVER (ORDER BY efname) row_num, efname, salary from employee order by efname;
+
+SELECT ROW_NUMBER() OVER (ORDER BY efname) row_num, efname, salary from employee order by efname;
+
+
+
+Pagination using ROW_NUMBER() function
+
+SELECT * from (select efname, salary, ROW_NUMBER() OVER (ORDER BY efname) as row_num from employee) e where row_num between 5 and 10;
+
+
+NTILE
+
+select efname,year(doj), salary, NTILE(4) OVER (PARTITION BY year(doj) order by salary)emp_yearwise_emp from employee;
+
+
+select efname, salary , row_number() over ( order by salary)rownum , round(cume_dist() over (order by salary),2)*100 from employee;
+
+
+select efname, salary , row_number() over ( order by salary)rownum , round(cume_dist() over (order by salary),2)*100 from employee;
+
+
+
+select * from (SELECT efname, salary, NTH_VALUE(efname, 2) OVER  ( ORDER BY salary DESC ) second_highest_salary,ROW_NUMBER() OVER (ORDER BY efname) as row_num FROM employee) e where row_num = 1;
++--------+--------+-----------------------+---------+
+| efname | salary | second_highest_salary | row_num |
++--------+--------+-----------------------+---------+
+| Aman   |  15490 | Romila                |       1 |
++--------+--------+-----------------------+---------+
+1 row in set (0.01 sec)
+
+
+
+
+SELECT * from (select efname, salary, ROW_NUMBER() OVER (ORDER BY efname) as row_num from employee) e where row_num between 5 and 10;
++-------------+--------+---------+
+| efname      | salary | row_num |
++-------------+--------+---------+
+| Chandrakant |  11400 |       5 |
+| Devaki      |  16200 |       6 |
+| Janki       |  14000 |       7 |
+| Kamya       |  13160 |       8 |
+| Karishma    |  10700 |       9 |
+| Kishan      |  13000 |      10 |
++-------------+--------+---------+
+
+
+select curdate();
+select dayname (curdate());
+select monthname (curdate());
+
+Effective communication
+-->it occurs when the msg sent is received and understood by the receiver in the same sense as the sender wants to convey it.
+
+Cultivating positive relationship is critical to effective communication.
+
+7 cs of effective communication
+
+credibility-> builds trust
+courtesy-> respectful, improves relationships
+clarity-> easy or clear to understand
+correctness -> give correct information
+consistency-> being consistent, introduces stablity
+concreteness -> being concrete...give definate with fact and numbers
+conciseness -> being short/saves time/communication in optimum way
+
+
+Types of comminication
+
+1.Non verbal -> a) Physical gesture b) Signal and signs
+2.Verbal -> a) Written, b) Oral
+
+DOS
+-relax your posture
+-smiling
+-maintain eye contact
+-facing the person who is talking
+
+DONT
+-yawning
+-tapping your fingers
+-biting your nails

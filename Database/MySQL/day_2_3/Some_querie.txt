@@ -1,0 +1,73 @@
+
+SELECT User FROM mysql.user;
+
+CREATE USER aa@localhost IDENTIFIED BY 'bb';
+
+GRANT SELECT ON lms.book TO aa@localhost;
+//  create user 'a'@'localhost' identified by 'pass';
+
+REVOKE SELECT ON lms.book FROM aa@localhost;
+
+alter user aa@localhost identified by '
+alter user aa@localhost identified by 'cc';
+
+SELECT bookid, bookname, catogery, cost from book WHERE catogery = 'non-fiction';
+SELECT bookid, bookname, catogery, cost from book WHERE cost = 300;
+SELECT bookid, bookname, catogery, cost from book WHERE cost < 300;
+SELECT bookid, bookname, catogery, cost from book where catogery = 'Fiction' OR catogery= 'non-fiction' OR catogery = 'self-help';
+SELECT bookid, bookname, catogery, cost from book where catogery IN ('Fiction','non-fiction','self-help');
+SELECT bookid, bookname, catogery, cost from book where catogery NOT IN ('Fiction','non-fiction','self-help');
+SELECT bookid, bookname, catogery, cost from book WHERE COST > 300 AND cost < 350;
+SELECT bookid, bookname, catogery, cost from book WHERE COST BETWEEN 300  AND 350;
+SELECT bookid, bookname, catogery, cost from book WHERE COST < 300 AND catogery = 'fiction';
+
+select count(memberid) from member;
+select count(*) from member where sex='male';
+select count(memberid) from member where sex='male';
+
+select max(cost) from book;
+select distinct(catogery) from book;
+select catogery, count(catogery) from book GROUP BY catogery;
+
+select sex, count(sex) from member group by sex;
+select year(doj) , count(year(doj)) from member group by year(doj);
+
+select year(doj) , count(year(doj)) from member group by year(doj) HAVING count(year(doj)) >
+select year(doj) , count(year(doj)) from member group by year(doj) HAVING count(year(doj)) > 1;
+
+select catogery, sum(cost) from book GROUP BY catogery;
+select * from book ORDER BY booklastissueddate;
+select * from book ORDER BY COST DESC;
+select catogery, max(cost) from book GROUP BY catogery ORDER BY MAX(COST) DESC;
+
+Windows Function
+select BOOKNAME,catogery, avg(cost) OVER(PARTITION BY catogery) from book;
+select mfname, mlname, status, count(status) OVER(PARTITION BY status) from member;
+
+---------
+JOIN
+--------
+select bookname, authorname from book, author WHERE book.authorid = author.authorid;
+select bookname, authorname from book,author where authorid = aid;
+select bookname, authorname FROM book JOIN author ON aid = authorid;
+above three gives the same result and output will content the common contents...
+
+select bookname, authorname FROM book LEFT JOIN author ON aid = authorid;
+select bookname, authorname FROM book RIGHT JOIN author ON aid = authorid;
+
+SELF JOIN - JOIN ON THE SAME TABLE
+select a.efname as Employee,b.efname as Manager  from employee a, empLoyee b WHERE a.reportto = b.employeeid;
+
+SUBQUERY
+select bookname,cost from book where cost = (Select min(COST) from book) ;
+select mfname,year(doj) from member where year(doj) = (select min(year(doj)) from member);
+when INNER QUERY RESULT IN MULTIPLE VALUES THEN USE KEYWORD 'IN'
+select bookname from book where aid IN (select authorid from author where nationality = 'india');
+
+select bookname from book where EXISTS (SELECT nationality from author where nationality = 'UK');
+select bookname from book where NOT EXISTS (SELECT nationality from author where nationality = 'Brazil');
+
+
+
+ select first_name, avg(salary) from employees group by department_id;
+ select first_name, avg(salary) over (partition by department_id) from employees;
