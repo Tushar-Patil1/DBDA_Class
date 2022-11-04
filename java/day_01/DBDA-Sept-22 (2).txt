@@ -1,0 +1,38 @@
+OOPS Using Java 8
+===============================================================
+Programming Language: It is used to communicate with the computer.
+Purpose: To develop the apps.
+
+#POP VS OOP
+--------------------------------------------------------------------
+POP: Procedure Oriented Programmng Approach
+1. Focus on methods or procedure
+2. Follow the top-down approach: Problem is break down into small problems
+3. communication with in the program takes place through functions/methods
+4. E.g. C, COBOL, BASIC, Pascal etc
+
+OOP: Object Oriented Programming Approach
+1. Focus on who is affected: Data or Object
+2. Data Security
+3. Follow Bottom-Up Approach: Begin with easy and adding more complexity: Inheritance
+4. Communication takes place through objects
+5. Data and Operations/Functions/Methods are tied together: Class
+6. E.g C++,Java, C#, Python, Ruby, Java Script , PHP
+----------------------------------------------------------------------
+
+#Features of OOPs
+----------------------------------------------------------------------
+Object: It is a real world entity which has some state and behaviour.
+or 
+Object have attributes and behaviour
+attributes=>features=>properties
+Behavious=>functions/methods=>which operate over the data 
+Class: A blueprint which binds state and behaviour or objects together
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+------------------------------------------------------------------------
+
+#JAVA Introduction
+------------------------------------------------------------------------
