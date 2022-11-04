@@ -1,0 +1,45 @@
+1) Creating Index
+
+
+db.Author.createIndex({AuthorName:1}) --> Create Index on AuthorName in ascending order with Index name AuthorName_1 (default name)
+
+db.Author.createIndex({AuthorName:-1}) --> Create Index on AuthorName in decending order with Index name 
+AuthorName_-1(default name)
+
+db.products.createIndex({ item: 1} ,  { name: "query for inventory" } )--> Create Index on AuthorName in decending order with Index name  query for inventory (user defined name)
+
+List all Indexes on Collection
+--------------------------------------
+2) To see the indexes on collection --> db.Author.getIndexes()
+
+create Index on Collection
+--------------------------------------
+3) To hide the index  --> db.Author.createIndex({AuthorName}) <-- by using keyname
+
+drop Index on Collection
+--------------------------------------
+4) To drop the index  --> db.Author.dropIndex(AuthorName_1) <-- by using keyname
+
+List all Indexes on Collection
+--------------------------------------
+3) To hide the index  --> db.Author.hideIndex({AuthorName}) <-- by using keyname
+3) To unhide the index  --> db.Author.hideIndex({AuthorName_1}) <-- by using indexname
+
+4) To unhide the index  --> db.Author.unhideIndex({AuthorName_1}) <-- by using indexname
+
+-------------------------------------------------------------------------------------------------------------------------
+To see the time taken for execution
+
+database - chkidx
+collection - alldata
+
+db.alldata.find().explain("executionStats")
+db.alldata.find({},{_id:0,domain_registrar_name:1}).explain("executionStats")
+
+
+
+
+
+
+
+  

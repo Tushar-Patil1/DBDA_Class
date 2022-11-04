@@ -1,0 +1,7 @@
+db.Member.aggregate([{$group:{_id:'$Status',StatusCount:{$sum:1}}}])
+db.Member.aggregate([{$group:{_id:'$Sex',cnt:{$sum:1}}}])
+
+db.Book.aggregate([{$group:{_id:'$Catogery',avg:{$avg:'$Cost'}}}])
+db.Book.aggregate([{$group:{_id:'$Catogery',avg:{$sum:'$Cost'}}}])
+db.Book.aggregate([{$group:{_id:'$Catogery',avg:{$max:'$Cost'}}}])
+--> Max cost per catogery

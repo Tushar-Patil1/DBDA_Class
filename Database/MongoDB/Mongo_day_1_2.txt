@@ -1,0 +1,126 @@
+To see the list of databases
+show databases
+
+To enter in the databases
+use <database_name>
+
+JSON
+JavaScript Object Notation
+
+To create collection
+db.createCollection('<collection_name>')
+
+To see the name of newly created database, there must be atleast one collection in that database
+db.book.insert()
+db.book.insert({bookid:'B001',bookname:'2 states'})
+db.book.insert({Title:'Lashkar',Page:237})
+db.book.insert({mobilenumber:'98238000079'})
+
+Inserting multiple Key-Value pairs in a SINGLE document
+db.book.insert({Type:'Fiction',Page:237,publisher:'Viking',author:'Chetan Bhagat'})
+Inserting multiple documents in a SINGLE insert statement
+db.book.insert([{bookid:'B004',Title:'Scorpian'},{Bookid:'B005',Page:122}])
+--> use of []
+
+db.book.insert({Roles:['Admin','HR']},{Shifts:['First','Second']})
+
+
+db.Author.find().pretty()
+--> To see data in vertical manner
+db.Author.find({},{_id:0,AuthorName:1,Nationality:1})
+{} <-- Hide All Key Values
+1 <-- Visibility ON
+0 <-- Visibility OFF
+
+Displaying data on ONE condition
+db.Author.find({Nationality:'India'}).pretty()
+
+Displaying data on MULTIPLE conditions
+db.Author.find({Nationality:'India',Gender:'M'}).pretty()
+Note: This is the use of AND condition
+
+Use of OR
+db.Author.find({$or:[{Nationality:'USA'},{Nationality:'UK'}]}).pretty()
+
+Use of OR and seeing only that Keyvalue
+db.Author.find({$or:[{Nationality:'USA'},{Nationality:'UK'}]},{_id:0,Nationality:1})
+==================================================================================================================
+To see limited Documents
+db.Rack.find().limit(2)
+Will show only 2 documents
+
+To skip few records
+db.Rack.find().skip(3)
+Will Skip the documents
+
+Order the documents
+db.Rack.find().sort({rackcapacity:1})
+--> Asc order
+
+db.Rack.find().sort({rackcapacity:-1})
+-->Desc order
+===================================================================================================================
+
+bulk insert
+---------------
+
+var bulk = db.players.initializeUnorderedBulkOp();
+bulk.insert({fname:'Sachin', lname:'Tendulkar'});
+bulk.insert({fname:'Saurav', lname:'Ganguly'});
+bulk.insert({fname:'Virendra', lname:'Sehwag'});
+bulk.execute();
+
+var bulk1 = db.players2.initializeUnorderedBulkOp();
+bulk1.insert([{fname:'Sachin', lname:'Tendulkar'},{fname:'Saurav', lname:'Ganguly'},{fname:'Virendra', lname:'Sehwag'}]);
+bulk1.execute();
+
+
+====================================================================================================================
+Use of > < >= <=
+db.Book.find({Cost:{$gt:300}},{Cost:1 , name:1 , _id:0})
+db.Book.find({Cost:{$lt:300}},{Cost:1})
+
+
+Range between Two Values
+db.Book.find({Cost:{$gt:300,$lt:350}},{Cost:1})
+
+db.author.update({},{$set:{name:'Robin Sharma'}})
+--> Will update only first document
+
+db.author.updateMany({},{$set:{name:'Robin Sharma'}})
+--> will update ALL documents (since WHERE condition is missing {}
+)
+db.author.update({aid:2},{$set:{name:'Mukul Deva'}})
+--> Will update the document with specific id , aid 2 in this case
+This is update with WHERE conditon
+
+db.author.update({aid:1,Country:'India'},{$set:{name:'Chetan Bhagat'}})
+--> Updating based on TWO conditions
+db.author.update({aid:1},{$unset:{Country:'India'}})
+--> Will remove keyvalue Country:India from specific document
+
+db.author.updateMany({},{$unset:{name:''}})
+--> remove key name from all the documents
+
+db.author.remove({aid:1})
+--> Remove function removes ENTIRE document based on condition
+
+db.author.deleteOne({aid:1})
+--> Will delete only the first match document from the collection
+
+db.author.deleteMany({aid:1})
+--> Will delete ALL the matching documents as per the condition
+
+db.Author.distinct('Nationality')
+--> Will show you the list of distinct Nationality
+
+db.Employee.distinct('Designation')
+--> Will display distinct Designation
+===================
+
+mongoimport -d lms -c Author --type csv --file "E:\C-DAC\DAC\DBT\1.Sample DB\NoSQL\Imports\LMS\Author.csv" --headerline
+===========
+
+
+
+
