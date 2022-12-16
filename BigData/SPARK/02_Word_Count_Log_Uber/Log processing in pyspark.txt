@@ -1,0 +1,14 @@
+lines = sc.textFile("hdfs://nameservice1/user/bigcdac432511/dir1/mapred-hduser-historyserver-ubuntu.log")
+
+lines_lower = lines.map(lambda s : s.lower())
+
+errors = lines_lower.filter(lambda s : "error" in s)
+
+pattern = errors.filter(lambda s : "received signal 15" in s)
+
+pattern.count()
+
+for lines in pattern.collect():
+...	print(lines)
+...
+

@@ -1,0 +1,23 @@
+1.
+
+Count_c1=spark.sql("select age,COUNT(DISTINCT cust_id),sum(sale) from retail where month(txn_id)=1 group by age")
+
+2.
+
+Count_c2=spark.sql("Select product,COUNT(DISTINCT cust_id),sum(sale) from retail where trim(age)='A' group by product order by sum(sale) desc")
+
+3.
+
+retail=spark.sql("select age,count(distinct(cust_id)),sum(sale) from retail where month(txn_id)=1 group by age")
+
+4.
+
+Count_c4=spark.sql("select product,sum(sale)-sum(cost) as profit from retail group by product order by profit desc")
+
+5.
+
+Count_c5=spark.sql("select product,sum(sale)-sum(cost) as profit from retail group by product having profit < 0 order by profit")
+
+
+
+

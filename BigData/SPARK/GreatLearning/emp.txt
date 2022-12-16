@@ -1,0 +1,5 @@
+'Tushar',50000
+'Suraj',40000
+'Sumit',35000
+'Twinkle',60000
+'Yogita',80000

@@ -1,0 +1,43 @@
+from pyspark.sql.types import StructType, StringType, IntegerType, DoubleType, LongType
+
+schema = StructType().add("exchange_name",StringType(),True) .add("stock_id",StringType(),True).add("stock_dt",StringType(),True).add("open",DoubleType(),True).add("high",DoubleType(),True) .add("low",DoubleType(),True) .add("close",DoubleType(),True) .add("volume",LongType(),True) .add("adj_close",DoubleType(),True)
+      
+print(schema) 
+
+df_with_schema = spark.read.format("csv").option("header","False").schema(schema).load("hdfs://nameservice1/user/bigcdac432511/dir1/NYSE.csv")
+
+df_with_schema.printSchema()
+
+df_with_schema.show()
+
+df_with_schema.registerTempTable("nyse")
+
+df_StockVol = spark.sql("select stock_id, sum(volume) from nyse group by stock_id")
+
+df_StockVol.count()
+
+df_with_schema.show(203)
+
+df_StockVol.rdd.getNumPartitions()
+
+df_new = df_StockVol.repartition(1)
+
+df_new.write.csv("hdfs://nameservice1/user/bigcdac432511/dir1/spark1")
+
+
+
+------------------------------------------------------------------------------
+schema2 = StructType().add("year",StringType(),True).add("quarter",StringType(),True).add("arps",DoubleType(),True).add("booked_seats",IntegerType(),True)
+
+
+df_with_schema2 = spark.read.format("csv").option("header", "True").schema(schema2).load("hdfs://nameservice1/user/bigcdac432511/dir1/airlines.csv")
+
+
+df_with_schema2.count()
+
+
+df_with_schema.registerTempTable("airlines")
+
+YrWiseRev = spark.sql("select year, round(sum(arps*booked_seats)/1000000,2) as total_in_mill from airlines group by year order by total_in_mill desc")
+
+YrWisePsx = spark.sql("select year, sum(booked_seats) as total_psx from airlines group by year order by total_psx desc")

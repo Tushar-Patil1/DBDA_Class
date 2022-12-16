@@ -1,0 +1,9 @@
+
+from pyspark.sql.types import StructType, StringType, IntegerType, DoubleType, LongType
+
+
+
+schema10 = StructType().add("txn_id",StringType(),True).add("cust_id",StringType(),True).add("age",StringType(),True).add("zipcode",StringType(),True).add("category",StringType(),True).add("product",StringType(),True).add("qty",IntegerType(),True).add("cost",IntegerType(),True).add("sale",IntegerType(),True)
+
+
+sol_1=spark.sql("select count(distinct(txn_id)), age, sum(sale) as total from retail where month(txn_id) =1 group by age order by total")

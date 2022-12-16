@@ -1,0 +1,37 @@
+# dataRDD = sc.textFile("file:/home/bigcdac432511/sample.txt",1)
+# dataRDD = sc.textFile("sample.txt",1)
+dataRDD = sc.textFile("hdfs://nameservice1/user/bigcdac432511/dir1/sample.txt",1)
+
+
+>>> dataRDD.count()
+>>>dataRDD.getNumPartitions()
+
+>>> for a in dataRDD.collect():                                            
+...     print(a)  
+
+
+mapRDD = dataRDD.flatMap(lambda a : a.encode("ascii", "ignore").split(' '))
+>>> for word in mapRDD.collect():
+...     print(word)
+... 
+
+mapRDD = dataRDD.flatMap(lambda a : a.split(' '))
+
+
+
+>>> keybyword2 = mapRDD.map(lambda word : (word,1))
+>>> for line in keybyword2.collect():
+...     print(line)
+
+>>> counts = keybyword2.reduceByKey(lambda a,b : a+b).sortByKey()
+>>> for line in counts.collect():
+...     print(line)
+
+sortbyval = counts.sortBy(lambda a : -a[1]).collect()
+>>> for line in sortbyval:
+...     print(line)
+
+>>> counts.saveAsTextFile("file:/home/bigcdac432511/pyspark1")
+>>> sc.parallelize(sortbyval,1).saveAsTextFile("file:/home/bigcdac432511/pyspark2")
+
+
