@@ -1,0 +1,77 @@
+1. What is the difference between truncate, delete, drop?
+
+Truncate :- It is used to delete all the rows of a relation (table) in one go. With the help of the “TRUNCATE” command, we can’t delete the single row as here WHERE clause is not used. By using this command the existence of all the rows of the table is lost
+
+Delete :-  It is used to delete one or more tuples of a table. With the help of the “DELETE” command, we can either delete all the rows in one go or can delete rows one by one. i.e., we can use it as per the requirement or the condition using the Where clause.
+
+Drop :- . It is used to drop the whole table. With the help of the “DROP” command we can drop (delete) the whole structure in one go i.e. it removes the named elements of the schema. By using this command the existence of the whole table is finished or say lost
+
+
+
+2. What are alias in MySQL?
+
+Aliases in MySQL is used to give a temporary name to a table or a column in a table for the purpose of a particular query. It works as a nickname for expressing the tables or column names. It makes the query short and neat.
+Ex: SELECT col_name AS alias_name FROM table_name;  
+
+It is very useful when the table or column name is not user-friendly in real-time. It makes the name of a column more readable. MySQL aliases can exist only for the duration of a query.
+
+
+3. How do you display even rows of the any table?
+
+
+The simplest way to find the records with odd or even values is to check the remainder when we divide the column value by 2. A remainder of 0 indicates an even number, while an odd number points to an odd number.
+
+to find rows where a specified column has even values:-
+
+SELECT * 
+FROM table_name 
+WHERE mod(column_name,2) = 0;
+
+
+
+
+4. How can you remove duplicates from a table(distinct and other way)
+
+A] 
+
+SELECT DISTINCT columns
+  FROM table;
+
+B]
+
+WITH CTE (Col1, Col2, Col3, DuplicateCount)
+AS
+(
+  SELECT Col1, Col2, Col3,
+  ROW_NUMBER() OVER(PARTITION BY Col1, Col2,
+       Col3 ORDER BY Col1) AS DuplicateCount
+  FROM MyTable
+) SELECT * from CTE Where DuplicateCount = 1
+
+
+
+5. How you can find 5th max salary?(Do it by all 3 ways)
+
+
+select * from(
+select salary dense_rank() 
+over(order by salary desc)r from table) 
+where r=&5;
+
+
+
+Select Salary from table_name order by Salary DESC limit 3,1;
+
+
+
+SELECT ename,sal from Employee e1 where 
+        4 = (SELECT COUNT(DISTINCT sal)from Employee e2 where e2.sal > e1.sal)
+
+
+
+
+SELECT TOP 1 salary
+FROM ( SELECT DISTINCT TOP 5 salary
+FROM Employee
+ORDER BY salary DESC) AS temp
+ORDER BY salary
