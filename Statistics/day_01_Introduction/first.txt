@@ -1,0 +1,62 @@
+1.Need - > Identify need , situation
+2.Database preparation -> Using Panda, Numpy (getting data)
+3.Model -> Build model, Check model which is suitable
+take decision (statitstical tool)
+4.check quality of model/ quality assurrance
+5.documentaion
+6.Get approval from management
+7.Final Implementation
+
+-------------------------------------------------------
+
+Types of data
+
+1.Continuous data - distnace of shopping mall from home
+any kind of measurement , speed, temp, density
+
+2.Discrete data - Number of family members.(whole number)
+
+
+3.Attribute data - Characteristics (could be number or string), rating, yes or no (but when count yes or no it becomes discrete data), catagory, 
+like select from option 
+
+
+counting > Discrete
+measuring > continuous
+
+Qualititative - Attribute, qualitative is always attribute
+
+Quantitative - discrete and continuous are part of only quantitative data
+
+
+
+
+
+Types of scale-: Nominal, ordinal, interval and ratio
+
+Nominal-
+
+Nominal. choice has to be made from different categories. these categories do not have any logical order (languages)
+
+
+Ordinal-
+Ordinal. choice has to be made from different categories. these categories HAVE a logical order (rating or ranking)
+
+
+interval -  zero does not mean the absence of measurement
+
+
+ratio - zero means absence of measurement
+
+
+difference between list and array
+-> particular level of slicing is possible in array but not in list.
+
+
+input to the where command is a logical statement which could be true or false
+output of the where command is the index or indices where the condition is found to be true
+
+
+Data analysis is a process involving the collection, manipulation, and examination of data for getting a deep insight. Data analytics is taking the analyzed data and working on it in a meaningful and useful way to make well-versed business decisions.
+
+
