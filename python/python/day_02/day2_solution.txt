@@ -1,0 +1,482 @@
+# 1. Write a C program to accept two integers and check whether they are equal or not. Test Data : 15 15 Expected Output : Number1 and Number2 are equal 
+
+# num1 = int(input("Enter first number: "))
+# num2 = int(input("Enter second number: "))
+
+# if num1 == num2:
+#    print("Number1 and Number2 are equal ") 
+# else:
+#     print("Number1 and Number2 are not equal ")
+
+
+
+
+# 2. Write a C program to check whether a given number is even or odd. Test Data : 15 Expected Output : 15 is an odd integer 
+
+# num = int(input("Enter a number : "))
+# if num % 2 != 0:
+#     print(num,"is an odd number")
+# else:
+#     print(num,"is an even number")
+
+
+
+
+# 3. Write a C program to check whether a given number is positive or negative. Test Data : 15 Expected Output : 15 is a positive number 
+
+# num = int(input("Enter a number: "))
+# if num>=0:
+#     print(num,"is a positive number")
+# else:
+#     print(num,"is a negative number")
+
+
+
+
+# 4. Write a C program to find whether a given year is a leap year or not. Test Data : 2016 Expected Output : 2016 is a leap year. 
+
+# year = int(input("Enter a year: "))
+# if (year %4 == 0 and year % 100 !=0) or (year % 400 == 0):
+#     print(year,"is a leap year")
+# else:
+#     print(year,"is not a leap year")
+
+
+
+
+# 5. Write a C program to read the age of a candidate and determine whether it is eligible for casting his/her own vote. Test Data : 21 Expected Output : Congratulation! You are eligible for casting your vote. 
+
+# age = int(input("Enter your age: "))
+# if age>=21:
+#     print("Congratulation! You are eligible for casting your vote.")
+# else:
+#     print("Sorry, you are not eligible for vote")
+
+
+
+
+# 6. Write a C program to read the value of an integer m and display the value of n is 1 when m is larger than 0, 0 when m is 0 and -1 when m is less than 0. Test Data : -5 Expected Output : The value of n = -1 
+
+# m = int(input("Enter the value: "))
+# if m>0:
+#     print("The value of n = 1")
+# elif m==0:
+#     print("The value of n = 0")
+# else:
+#     print("The value of n = -1 ")
+
+
+
+
+
+# 7. Write a C program to accept the height of a person in centimeter and categorize the person according to their height. Test Data : 135 Expected Output : The person is Dwarf. 
+
+# height = int(input("Enter your height:"))
+# if height>180:
+#     print("The person is heighted")
+# elif height>135:
+#     print("The person have average height")
+# else:
+#     print("Person is dwarf")
+
+
+
+
+
+# 8. Write a C program to find the largest of three numbers. Test Data : 12 25 52 Expected Output : 1st Number = 12, 2nd Number = 25, 3rd Number = 52 The 3rd Number is the greatest among three 
+
+# num1 = int(input("Enter first number: "))
+# num2 = int(input("Enter second number: "))
+# num3 = int(input("Enter third number: "))
+
+# print("1st number = ",num1)
+# print("2nd number = ",num2)
+# print("3rd number = ",num3)
+
+# if num1>num2 and num1>num3:
+#     print("The 1st Number is the greatest among three ")
+# elif num2>num3:
+#     print("The 2nd Number is the greatest among three ")
+# else:
+#     print("The 3rd Number is the greatest among three ")
+
+
+
+
+
+
+# 9. Write a C program to accept a coordinate point in a XY coordinate system and determine in which quadrant the coordinate point lies. Test Data : 7 9 Expected Output : The coordinate point (7,9) lies in the First quadrant.
+
+# x = int(input("Enter x coordinate: "))
+# y = int(input("Enter y coordinate: "))
+
+# if x>0 and y>0:
+#     print("The coordinate point (",x,y,") lies in the First quadrant.")
+# elif x>0 and y<0:
+#     print("The coordinate point (",x,y,") lies in the Third quadrant.")
+# elif x<0 and y>0:
+#    print("The coordinate point (",x,y,") lies in the Second quadrant.")
+# elif x<0 and y<0:
+#     print("The coordinate point (",x,y,") lies in the Fourth quadrant.")
+# else:
+#     print("Enter proper coordinates")
+
+
+
+
+# 10. Write a C program to find the eligibility of admission for a professional course based on the following criteria: 
+# Eligibility Criteria : Marks in Maths >=65 and Marks in Phy >=55 and Marks in Chem>=50 and Total in all three subject >=190 or Total in Maths and Physics >=140 
+# ------------------------------------- Input the marks obtained in Physics :65 Input the marks obtained in Chemistry :51 
+# Input the marks obtained in Mathematics :72 Total marks of Maths, Physics and Chemistry : 188 Total marks of Maths and Physics : 137 
+# The candidate is not eligible. Expected Output : The candidate is not eligible for admission. 
+
+
+# maths = int(input("Enter your maths marks: "))
+# phy = int(input("Enter your physics marks: "))
+# chem = int(input("Enter your chemistry marks: "))
+
+# if (maths >=65 and phy >=55 and chem >=50) and (maths+phy+chem >=190 or maths+phy >= 140):
+#     print("The candidate is eligible for admission.")
+# else:
+#     print("The candidate is not eligible for admission.")
+
+
+
+
+
+
+
+
+# 11. Write a C program to calculate the root of a Quadratic Equation. Test Data : 1 5 7 Expected Output : Root are imaginary; No solution. 
+
+# a=int(input("enter the a: "))
+# b=int(input("enter the b: "))
+# c=int(input("enter the c: "))
+# d=(b**2)-(4*a*c)
+# if d>0:
+#   print("roots are real")
+#   r1=(-b+(d**-2))/(2*a)
+#   r2=(-b+(d**-2))/(2*a)
+#   print("they are",r1,r2)
+# elif d<0:
+#   print("roots are imaginary")
+# elif d==0:
+#   print("roots are real and equal")
+#   r=-b/(2*a)
+#   print(r,"is the root")
+
+
+
+
+
+# 12. Write a C program to read roll no, name and marks of three subjects and calculate the total, percentage and division. 
+# Test Data : Input the Roll Number of the student :784 Input the Name of the Student :James Input the marks of Physics, Chemistry and Computer Application : 70 80 90 
+# Expected Output : Roll No : 784 Name of Student : James Marks in Physics : 70 Marks in Chemistry : 80 Marks in Computer Application : 90 Total Marks = 240 Percentage = 80.00 Division = First 
+
+
+# roll = int(input("Enter roll number: "))
+# name = input("Enter your name: ")
+# print("Enter your marks in Physics, Chemistry and Computer application: ")
+# p=int(input())
+# c=int(input())
+# a=int(input())
+# Total_Marks = p+c+a
+# Percentage =(Total_Marks/300)*100
+# print("Roll No :", roll)
+# print("Name of student : ",name)
+# print("Marks in physics : ",p)
+# print("Marks in Chemistry : ",c)
+# print("Marks in  Computer application : ",a)
+# print(Total_Marks)
+# print(Percentage)
+# if Percentage >= 80 :
+#     print("Divison = First")
+# elif Percentage >=60:
+#     print("Divison = Second")
+# elif Percentage >=40:
+#     print("Divison = Third")
+# else:
+#     print("Divison = Fourth")
+
+
+
+
+
+# 13. Write a C program to read temperature in centigrade and display a suitable message according to temperature state below : Temp < 0 
+# then Freezing weather Temp 0-10 then Very Cold weather Temp 10-20 then Cold weather Temp 20-30 then Normal in Temp Temp 30-40 
+# then Its Hot Temp >=40 then Its Very Hot Test Data : 42 Expected Output : Its very hot. 
+
+
+# tem = int(input("Enter temperature: "))
+# if tem<0:
+#     print("Freezing weather")
+# elif tem<11 and tem>=0:
+#     print("Very Cold weather")
+# elif tem<21 and tem>=10:
+#     print("Cold weather")
+# elif tem<31 and tem>=20:
+#     print("Normal weather")
+# elif tem<41 and tem>=30:
+#     print("Its hot")
+# else:
+#     print("Its a very hot")
+
+
+# 14. Write a C program to check whether a triangle is Equilateral, Isosceles or Scalene. Test Data : 50 50 60 Expected Output : This is an isosceles triangle. 
+
+# side1=int(input("First side of traingle: "))
+# side2=int(input("Second side of traingle: "))
+# side3=int(input("Third side of traingle: "))
+
+# if side1 == side2 and side2 == side3 and side3 == side1:
+#     print("This is an equilateral triangle.")
+# elif side1 != side2 and side2 != side3 and side3 != side1:
+#     print("This is not an isosceles not a equilateral triangle.")
+# else:
+#     print("This is an isosceles triangle.")
+
+
+
+# 15. Write a C program to check whether a triangle can be formed by the given value for the angles. Test Data : 40 55 65 Expected Output : The triangle is not valid. 
+
+# angle1=int(input("First angle1 of traingle: "))
+# angle2=int(input("Second angle1 of traingle: "))
+# angle3=int(input("Third angle1 of traingle: "))
+
+# if angle1+angle2+angle3 == 180:
+#     print("The triangle is valid")
+# else:
+#     print("The triangle is not valid")
+
+
+# 16. Write a C program to check whether a character is an alphabet, digit or special character. Test Data : @ Expected Output : This is a special character. 
+
+
+# inp = input("Enter character: ")
+# if inp.isalpha():
+#     print("This is a alphabetical character")
+# elif inp.isdigit():
+#     print("This is a digit number")
+# else:
+#     print("This is a special character")
+
+
+
+
+# 17. Write a C program to check whether an alphabet is a vowel or consonant. Test Data : k Expected Output : The alphabet is a consonant.
+
+
+# inp = input("Enter a single alphabet : ")
+# if inp.isalpha():
+#     if inp == "a" or inp == "e" or inp == "i" or inp == "o" or inp == "u" or  inp == "A" or inp == "E" or inp == "I" or inp == "O" or inp == "U":
+#         print("The alphabet is a vowel")
+#         #print(inp[0])
+#     else:
+#         print("The alphabet is a consonant.")
+
+
+# 18. Write a C program to calculate profit and loss on a transaction. Test Data : 500 700 Expected Output : You can booked your profit amount : 200 
+
+
+# rs1=int(input("Enter first amount : "))
+# rs2=int(input("Enter second amount : "))
+
+# if rs1<rs2:
+#     print("You can booked your profit amount :",rs2-rs1)
+# else:
+#     print("You can booked your loss amount :",rs1-rs2)
+
+
+
+# 19. Write a program in C to calculate and print the Electricity bill of a given customer.
+#  The customer id., name and unit consumed by the user should be taken from the keyboard and display the total amount to pay to the customer. 
+# The charge are as follow : Unit Charge/unit upto 199 @1.20 200 and above but less than 400 @1.50 400 and 
+# above but less than 600 @1.80 600 and above @2.00 If bill exceeds Rs. 400 then a surcharge of 15% will be charged and the minimum bill should be of Rs. 100/- 
+# Test Data : 1001 James 800 Expected Output : Customer IDNO :1001 Customer Name :James unit Consumed :800 Amount Charges @Rs. 2.00 per unit : 1600.00 Surchage Amount : 240.00 Net Amount Paid By the Customer : 1840.00 
+
+
+# unit = int(input("Enter your total unit: "))
+# charge=0
+# if unit<=199:
+#     charge=unit*1.20
+#     print(charge)
+# elif unit>199 and unit<=399:
+#     charge=unit*1.50
+#     print(charge)
+# elif unit>=400 and unit<600:
+#     charge=unit*1.8
+#     charge += charge*0.15
+#     print(charge)
+# elif unit>=600:
+#     charge=unit*2
+#     charge += charge*0.15
+#     print(charge)
+
+
+# 20. Write a program in C to accept a grade and declare the equivalent description : Grade Description E Excellent V Very Good G Good A Average F Fail Test Data : 
+# Input the grade :A Expected Output : You have chosen : Average 
+
+
+
+# grade = input("Enter a grade: ")
+# if grade.isalpha():
+#     if grade == "E":
+#         print("Excellent")
+#     elif grade == "V":
+#         print("Very good")
+#     elif grade == "G":
+#         print("Good")
+#     elif grade == "F":
+#         print("Fail")
+#     else:
+#         print("Invalid input")
+# else:
+#     print("Invalid input")
+    
+
+
+
+# 21. Write a program in C to read any day number in integer and display day name in the word. Test Data : 4 Expected Output : Thursday
+
+# day = int(input("Enter number: "))
+# if day == 1:
+#     print("Monday")
+# elif day == 2:
+#     print("Tuesday")
+# elif day == 3:
+#     print("Wednesday")
+# elif day == 4:
+#     print("Thursday")
+# elif day == 5:
+#     print("Friday")
+# elif day == 6:
+#     print("Saturday")
+# elif day == 7:
+#     print("Sunday")
+# else:
+#     print("Give proper input between 1 to 7")
+
+
+# 22. Write a program in C to read any digit, display in the word. Test Data : 4 Expected Output : Four 
+
+
+# pip install num2words
+
+# from num2words import num2words
+
+# # Most common usage.
+# print(num2words(11098))
+
+# # can also specify this for -th format
+# print(num2words(11098, to='ordinal'))
+
+
+
+
+# 23. Write a program in C to read any Month Number in integer and display Month name in the word. Test Data : 4 Expected Output : April 
+
+# num = int(input("Enter a number between 1 to 12: "))
+# if num>=1 and num<=12:
+#     if num == 1:
+#         print("January")
+#     elif num == 2:
+#         print("February")
+#     elif num == 3:
+#         print("March")
+#     elif num == 4:
+#         print("April")
+#     elif num == 5:
+#         print("May")
+#     elif num == 6:
+#         print("June")
+#     elif num == 7:
+#         print("July")
+#     elif num == 8:
+#         print("August")
+#     elif num == 9:
+#         print("September")
+#     elif num == 10:
+#         print("October")
+#     elif num == 11:
+#         print("November")
+#     else:
+#         print("December")
+# else:
+#     print("Enter proper number between 1 to 12")
+
+
+# 24. Write a program in C to read any Month Number in integer and display the number of days for this month. Test Data : 7 Expected Output : Month have 31 days 
+
+# month = int(input("Enter month number between 1 to 12 "))
+# if month >=1 and month <=12:
+#     if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+#         print("Month have 31 days")
+#     elif month == 2:
+#         print("Month have either 28 or 29 day")
+#     else:
+#         print("Month have 30 days")
+# else:
+#     print("Enter proper month number")
+
+
+# 25. Write a program in C which is a Menu-Driven Program to compute the area of the various geometrical shape. 
+# Test Data : 1 5 Expected Output : The area is : 78.500000 
+
+
+
+# while True:
+#     print("Enter geometric shape number :\n1.Square\n2.Rectangle\n3.circle\n4.exit\n5.Repeat")
+#     shape = int(input())
+#     if shape == 1:
+#         side= int(input("Enter side of square: "))
+#         print("Area of square is: ",side*side)
+#     elif shape == 2:
+#         side1= int(input("Enter first side of rectangle: "))
+#         side2= int(input("Enter second side of rectangle: "))
+#         print("Area of rectangle is: ",side1*side2)
+#     elif shape == 3:
+#         cir = int(input("Enter radius of circle: "))
+#         print("Area of circle is: ",(22/7)*cir*cir)
+#     elif shape == 4:
+#         break
+#     elif shape == 5:
+#         True
+#     else:
+#         print("Invalid input")
+     
+
+
+
+
+
+
+# 26. Write a program in C which is a Menu-Driven Program to perform a simple calculation. 
+# Test Data : 10 2 3 Expected Output : The Multiplication of 10 and 2 is: 20
+
+
+# while True:
+#     print("Enter Calculation number :\n1.Addition\n2.Substraction\n3.Multiplication\n4.Division\n5.exit\n6.repeat")
+#     num = int(input())
+#     if num == 1:
+#         num1= int(input("Enter first number: "))
+#         num2= int(input("Enter second number: "))
+#         print("Addition of number is: ",num1+num2)
+#     elif num == 2:
+#         num1= int(input("Enter first number: "))
+#         num2= int(input("Enter second number: "))
+#         print("Substraction of number is: ",num1-num2)
+#     elif num == 3:
+#         num1= int(input("Enter first number: "))
+#         num2= int(input("Enter second number: "))
+#         print("Multiplication of number is: ",num1*num2)
+#     elif num == 4:
+#         num1= int(input("Enter first number: "))
+#         num2= int(input("Enter second number: "))
+#         print("Division of number is: ",num1/num2)
+#     elif num == 5:
+#         break
+#     elif num == 6:
+#         True
+#     else:
+#         print("Invalid input")
+

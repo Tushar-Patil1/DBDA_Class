@@ -1,0 +1,61 @@
+It is a thinking methodology which follows b to t approach we first think about objective output neede and process to achieve it and input is needed achieved
+
+3)Objective
+2)Process
+1)Input
+
+Compiler is like eating popcorn
+Interpretor is like eating Pani puri
+
+==========
+int
+float
+bool
+str
+complex
+===============
+
+
+will not update data at location but will store update at new location
+
+True: Presence of information
+False: Absence of data or information
+================
+Bitwise operator
+
+without using arithmetic operator double the number or half the number
+=========
+~173 -> -123
+===========
+and-> stops on 1st false and exit
+or -> stops checking and enter on 1st true
+=================
+convert cm in feet and inches
+==============
+
+for loop can only step or increment or decrement in int manner
+while loop can step in fraction step
+=======================
+
+sorted()-> Does not change permanantely
+name.sort() -> Changes permanantely
+========================================
+# Unicode : Unicode is superset of ASCII
+==========
+-> . method changes permananly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
