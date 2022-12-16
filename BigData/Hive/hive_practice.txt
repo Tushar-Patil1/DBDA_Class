@@ -1,0 +1,87 @@
+emp.txt
+
+1,Tushar,BLR,Asia
+2,Suraj,Hyd,Asia
+3,Sumit,Chennai,Asia
+4,Twinkle,Washington,North America
+5,Yogita,Mumbai,Africa
+
+creata database hive_p1
+
+create table emp_global(id int, name string, city string, continent string)
+row format delimited
+fields terminated by ','
+stored as textfile;
+
+hive > load data local inpath 'emp.txt' into table emp_global;
+hive > load data local inpath 'emp.csv' into table emp_global;
+
+load data local inpath 'emp.txt' into table emp_global;
+
+drop database hive_p1 cascade;  -> all folders deleted
+
+drop table emp_global; -> folder also deleted in hdfs
+
+
+create database loc_hive location '/user/bigcdac432511/myhivedata';
+
+describe extended emp_global;
+----------------------------------------------------------------------------------------
+create database emp_txt location '/user/bigcdac432511/myhive_ext';
+
+hadoop fs -rmr myhivedada
+
+create external table if not exists emp_global(id int, name string, city string, continent string)
+row format delimited
+fields terminated by ','
+stored as textfile
+location '/user/bigcdac432511/empdata';
+
+-----------------------------------
+
+create table emp_global_orc(id int, name string, city string, continent string)
+row format delimited
+fields terminated by ','
+stored as orcfile;
+
+insert into table emp_global_orc select * from emp_global;
+------------------------------------
+
+
+----Load Data (siblings.txt)-----
+
+Ram,43,India,Laxman
+Alice,55,USA,Alex#Tim
+Somu,22,India,Sham#Ram
+Ted,67,Australia,Kevin#Jincy#Tanya#Kate
+
+
+
+create table if not exists sibling_data (
+name string,
+age int,
+country string,
+siblings array<string>)
+row format delimited
+fields terminated by '#'
+collection items terminated by '#'
+lines terminated by '\n'
+stored as textfile;
+
+load data iocal inpath 'siblings.txt' into table sibling_data;
+
+----------------------------------------------------------
+
+
+create table if not exists company2.empdata (
+empid int,
+empname string,
+salary double,
+designation string,
+department string,
+age int)
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+tblproperties('skip.header.line.count' = '1') ;
+

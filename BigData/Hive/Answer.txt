@@ -1,0 +1,118 @@
+create table parkvio(
+summon_number bigint,
+plate_id string,
+registration_state string,
+plate_type string,
+issue_date string,
+vio_code int,
+vehi_btype string,
+vehi_make string,
+issu_agency string,
+str_code1 int,
+str_code2 int,
+str_code3 int,
+vehi_expdate int,
+vio_loc string,
+vio_precinct int,
+i_precinct int,
+i_code int,
+i_cmd string,
+i_squad string,
+vio_time string,
+time_fobs string,
+vio_country String,
+vio_in_fro String,
+house_no String,
+street_no String,
+intersect_street String,
+date_f_Observe int,
+law_section bigint,
+sub_div String,
+vio_legal_code String,
+Days_parking_effect String,
+from_hour_eff String,
+to_hour_in_eff String,
+vehicle_color String,
+unregis_vehicle String,
+vehicle_year int,
+meter_no String,
+feet_from_curb int,
+vio_post_code String,
+vio_desc String,
+stopping_vio String,
+hydrant_vio String,
+double_park_vio String)
+row format delimited
+fields terminated by ','
+stored as textfile;
+
+load data local inpath 'Parking_Violations.csv' overwrite into table parkvio;
+
+Part-I: Examine the data
+
+1. Find the total number of tickets for the year.
+
+
+select vehicle_year , count(distinct(plate_id)) as ticket_no
+from parkvio
+where vehicle_year < 2018
+group by vehicle_year
+order by vehicle_year; 
+
+2. Find out the total number of states to which the cars with tickets belong. The count of
+states is mandatory here, providing the exact list of states is optional.
+
+select registration_state, count(plate_id) as total_tickets
+from parkvio
+where (registration_state regexp '[A-Z]{2}') and (length(registration_state) = 2) 
+group by registration_state
+order by total_tickets;
+
+select registration_state, count(summon_number ) as total_tickets
+from parkvio
+where (registration_state regexp '[A-Z]{2}') and (length(registration_state) = 2) 
+group by registration_state
+order by total_tickets;
+
+
+3. Some parking tickets don’t have addresses on them, which is a cause for concern. Find
+out the number of such tickets, which have no addresses. (i.e. tickets where one of the
+Street Codes, i.e. "Street Code 1" or "Street Code 2" or "Street Code 3" is empty
+
+
+select count(plate_id) as Ticket_Without_Add
+from parkvio
+where ( str_code1 is null) or ( str_code2 is null) or (str_code3 is null) 
+
+Part-II: Aggregation tasks
+
+1. What are the top 5 most frequently occurring violation codes? (Note that
+frequency means the number of occurrences over a time period. The list should
+be in descending order)
+
+
+select vio_code , count(vio_code) as counter
+from parkvio
+group by vio_code
+order by counter desc
+limit 10;
+
+2. How often does each vehicle body type get a parking ticket? How about the vehicle
+make? (List the top 5 for both)
+
+select vehi_btype, vehi_make , count(plate_id) as Count_Violation
+from parkvio 
+group by vehi_btype, vehi_make
+order by Count_Violation desc
+limit 5;
+
+select vehi_btype, vehi_make , count(vehi_btype) as Count_Violation
+from parkvio 
+group by vehi_btype, vehi_make
+order by Count_Violation desc
+limit 5;
+
+
+
+
+

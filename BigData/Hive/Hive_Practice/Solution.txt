@@ -1,0 +1,147 @@
+https://programmer.group/hive-sql-50-exercises.html
+
+
+create database hive_p1;
+
+use hive_p1;
+
+create table student(
+s_id string,
+s_name string,
+s_birth string,
+s_sex string)
+row format delimited
+fields terminated by '\t';
+
+
+
+create table student(s_id string,s_name string,s_birth string,s_sex string) row format delimited fields terminated by '\t';
+create table course(c_id string,c_name string,t_id string) row format delimited fields terminated by '\t';
+create table teacher(t_id string,t_name string) row format delimited fields terminated by '\t';
+create table score(s_id string,c_id string,s_score int) row format delimited fields terminated by '\t';
+
+
+load data local inpath 'student.txt' into table student;
+load data local inpath 'course.txt' into table course;
+load data local inpath 'teacher.txt' into table teacher;
+load data local inpath 'score.txt' into table score;
+
+load data local inpath 's1.csv' overwrite into table s2;
+
+----------------------------------------------------------------------------------------------
+Q) Query the information and course scores of students with higher scores in "01" than "02":
+
+
+select
+    sc1.s_id,
+    sc1.s_score score01,
+    sc2.s_score score02
+from score sc1
+join score sc2 on sc1.s_id=sc2.s_id
+where sc1.c_id='01' and sc2.c_id='02' and sc1.s_score>sc2.s_score;
+
+
+02      70      60                                                                          
+04      50      30  
+-----------------------------------------------------------------------------------------------
+
+Q) Query the student number, student name and average score of students whose average score is greater than or equal to 60:
+
+
+select st.s_id, st.s_name, round(avg(s.s_score), 2)
+from student st
+join score s
+on st.s_id = s.s_id
+group by st.s_id, st.s_name
+having avg(s.s_score) >= 60;
+
+
+01      Lei Zhao        89.67                                                               
+02      Qian Dian       70.0                                                                
+03      Sun Feng        80.0                                                                
+05      Zhou Mei        81.5                                                                
+07      Zheng Zhu       93.5    
+
+---------------------------------------------------------------------------------------------
+Q) Query the student number, student name, total number of courses selected and the total score of all courses of all students:
+
+
+select st.s_id, st.s_name, count(s.c_id) as total_course, sum(s.s_score) as total_score
+from student st
+left outer join score s
+on st.s_id = s.s_id
+group by st.s_id, st.s_name; 
+
+                                                                                         
+01      Lei Zhao        3       269                                                         
+02      Qian Dian       3       210                                                         
+03      Sun Feng        3       240                                                         
+04      Li Yun  3       100                                                                 
+05      Zhou Mei        2       163                                                         
+06      Wu Lan  2       65                                                                  
+07      Zheng Zhu       2       187                                                         
+08      Ju Wang 0       NULL  
+
+----------------------------------------------------------------------------------------
+Q) Query the number of teachers surnamed "Li"
+
+select
+    t_name,
+    count(t_id)
+from teacher
+where t_name like 'Li%'
+group by t_name;
+
+
+Li Si   1 
+
+---------------------------------------------------------------------------------------------
+
+Q) Query the information of students who have learned "Zhang San's" Teaching:
+
+
+select * from student s
+join score sc
+on sc.s_id = s.s_id
+join course c
+on c.c_id=sc.c_id
+join teacher t
+on t.t_id = c.t_id
+where t.t_name = 'Zhang San';
+
+
+---------------------------------------------------------------------------------------------
+
+
+Q) Query the information of students who have studied the course numbered "01" and also studied the course numbered "02":
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------

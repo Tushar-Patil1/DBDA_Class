@@ -1,0 +1,6 @@
+emp_id,emp_name,salary,designation,department,age
+564,Ram,300000,VP,Board,47
+786,Bob,46000,Developer,Finanace,32
+987,Ravi,76000,tech Lead,IT,43
+001,Shiva,NA,CEO,Board,49
+348,Aditya,10000,Project Manager,IT,40
